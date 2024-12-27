@@ -2,3 +2,10 @@
 .logo {
     width:20%
 }
+
+.items {
+    height:400px;
+    margin:10px;
+    background-color:#ff5522;
+    border:1px solid grey;
+}
