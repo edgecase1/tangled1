@@ -1,0 +1,1 @@
+document.body.innerHTML += "<p>script2 from origin2 executed</p>";

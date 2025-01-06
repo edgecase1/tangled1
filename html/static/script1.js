@@ -1,0 +1,1 @@
+document.body.innerHTML += "<p>script1 executed</p>";
