@@ -5,7 +5,7 @@ version: '3.8'
 services:
   nginx:
     image: nginx:latest
-    container_name: nginx
+    container_name: tangled-nginx
     volumes:
       - ./html:/usr/share/nginx/html:ro
       - ./keys:/etc/nginx/keys:ro
@@ -15,25 +15,24 @@ services:
     depends_on:
       - php
     restart: always
-    ports:
-      - 443:443
-      - 80:80
-    networks:
-      - tangled-network
+    #ports:
+    #  - 8443
+    #  - 8000
+    network_mode: "host"
+
   php:
-    image: php:8.0-fpm
-    container_name: php8_fpm
+    container_name: tangled1-php8_fpm
+    #image: php:8.0-fpm
+    build: 
+      context: ./php8-fpm/
+      #dockerfile: ../Dockerfile
     volumes:
       - ./php:/var/www/html
       - ./php8-fpm/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf
     restart: always
-    networks:
-      - tangled-network
-
-networks:
-  tangled-network:
-    driver: bridge
-
+    #ports:
+    #  - 9000
+    network_mode: "host"
 
 volumes:
   html:

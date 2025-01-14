@@ -1,26 +1,51 @@
+<!DOCTYPE html>
+<html>
 <header>
 	<link href="/site.css" rel="stylesheet" type="text/css" />
+	<style>
+		div.page {
+			
+		}
+
+		#header {
+			width: 500px;
+		}
+
+		iframe, textarea {
+			width:100%;
+			min-height: 300px;
+		}
+	</style>
 </header>
 <body>
-	<div>
+	<div id="header">
 		<img src="Matris-21x20-edit.png" class="logo" alt="logo">
 	</div>
-	<p>Welcome to ACOSec</p>
-	<ul>
-		<li><a href="/page">link1</a></li>
-		<li><a href="/api2?action=list">api list</a></li>
-		<li><a href="#anchor">anchor</a></li>
-	</ul>
+	<div>
+		<button onclick="document.form.submit()">parse</button>
+	</div>
+	<div id="page" class="page">
+		<div>
+			<form name="form" action="html.php" method="post" target="frame1">
+				<textarea id="html" name="html" width="100%"></textarea>
+			</form>
+		</div>
+		<div>
+			<iframe name="frame1" src="html.php"></iframe>
+		</div>
+	</div>
+	
 
-	<img src="http://attacker.example.com:4444/hello">
-	<form action="/api2" method="post">
-		<input type="text" name="name">
-		<input type="submit">
-	</form>
+	<!--
 	<div class="items">x</div>
 	<div class="items">x</div>
 	<div class="items">x</div>
 	<div class="items">x</div>
 	<div id="anchor" class="items">this is a special item</div>
 	<div class="items">x</div>
+	-->
 </body>
+<sciprt>
+
+</sciprt>
+</html>
