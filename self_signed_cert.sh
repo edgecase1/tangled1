@@ -5,6 +5,7 @@ perror()
    exit 1
 }
 
+mkdir ca csr keys cert
 
 if [ -f ca/rootCA.key ] ; then
     echo "CA already exists"
