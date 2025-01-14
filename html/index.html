@@ -21,10 +21,18 @@
 	<div id="header">
 		<img src="Matris-21x20-edit.png" class="logo" alt="logo">
 	</div>
-	<div>
-		<button onclick="document.form.submit()">parse</button>
-	</div>
 	<div id="page" class="page">
+	<button id='start'>start</button>
+	<div class="items">x</div>
+	<div class="items">x</div>
+	<div class="items">x</div>
+	<div class="items">x</div>
+	<div id="anchor" class="items">this is a special item</div>
+	<div class="items">x</div>
+	</div>
+	<script>
+	var include=`
+		<button onclick="document.form.submit()">parse</button>
 		<div>
 			<form name="form" action="html.php" method="post" target="frame1">
 				<textarea id="html" name="html" width="100%"></textarea>
@@ -33,16 +41,12 @@
 		<div>
 			<iframe name="frame1" src="html.php"></iframe>
 		</div>
-	</div>
-	
+	`;
 
+	document.getElementById('start').addEventListener('click', function(){ document.getElementById('page').innerHTML=include;});
+	</script>
 	<!--
-	<div class="items">x</div>
-	<div class="items">x</div>
-	<div class="items">x</div>
-	<div class="items">x</div>
-	<div id="anchor" class="items">this is a special item</div>
-	<div class="items">x</div>
+	this is a comment
 	-->
 </body>
 <sciprt>
