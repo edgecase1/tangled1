@@ -1,8 +1,9 @@
 <?php
 
-if(isset($_POST['html']))
+if(isset($_GET['form']))
 {
-	echo $_POST['html'];
+	$key = $_GET['form'];
+	echo $_POST[$key];
 } else {
-	echo "ready to serve";
+	echo file_get_contents('php://input');
 }

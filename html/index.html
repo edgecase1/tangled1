@@ -16,26 +16,33 @@
 			min-height: 300px;
 		}
 	</style>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+               integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+               crossorigin="anonymous"></script>
 </header>
 <body>
 	<div id="header">
 		<img src="Matris-21x20-edit.png" class="logo" alt="logo">
 	</div>
 	<div id="page" class="page">
+		<form>
+			<label for="inputPassword">password:</label>
+			<input type="password" name="pass" id="inputPassword">
+			<div id="error" class="error"></div>
+		</form>
 	<button id='start'>start</button>
-	<div class="items">x</div>
-	<div class="items">x</div>
+	<!--<div class="items">x</div>
 	<div class="items">x</div>
 	<div class="items">x</div>
 	<div id="anchor" class="items">this is a special item</div>
 	<div class="items">x</div>
-	</div>
+	</div>-->
 	<script>
 	var include=`
 		<button onclick="document.form.submit()">parse</button>
 		<div>
 			<form name="form" action="html.php" method="post" target="frame1">
-				<textarea id="html" name="html" width="100%"></textarea>
+				<textarea id="html" name="html" placeholder="<img src= ..." width="100%"></textarea>
 			</form>
 		</div>
 		<div>

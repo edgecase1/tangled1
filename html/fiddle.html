@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<header>
+	
+	<style>
+		div.page {
+			
+		}
+
+		#header {
+			width: 500px;
+		}
+
+		iframe, textarea {
+			width:100%;
+			min-height: 300px;
+		}
+
+		.sidebyside {
+			display: flex;
+			border:1px solid silver;
+			padding:0;
+		}
+
+		.box {
+			flex: 1;
+			border:1px solid silver;
+			width:50%;
+			padding:0;
+		}
+
+		textarea {
+			border:0;
+			margin:0;
+			padding-right:0;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+               integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+               crossorigin="anonymous"></script>
+</header>
+<body>
+    <div class="controls">
+	    <button id="innerHTML">innerHTML</button>
+		<button id="iframe">iframe</button>
+	    <button id="php">php</button>
+    </div>
+	<div class="sidebyside">
+		<div class="box">
+			<textarea id="html" name="html" placeholder="&lt;img src= ..." width="100%"></textarea>
+		</div>
+		<div id="parsed" class="box">
+		</div>
+	</div>
+</body>
+<script>
+	
+	$('#innerHTML').on('click', () => { 
+		let html_markup = $('#html').val();
+		$('#parsed').html(html_markup);
+	});
+	$('#iframe').on('click', () => { 
+		let html_markup = $('#html').val();
+		//let data_uri = "data:text/plain;base64,"+btoa(html_markup);
+		$('#parsed').html(`<iframe id="frame1" name="frame1">`);
+		var frame1 = $('#frame1').get(0).contentWindow.document.write(html_markup);
+	});
+	$('#php').on('click', () => { 
+		let html_markup = $('#html').val();
+		let formData = new FormData();
+		formData.append('html', html_markup);
+		fetch('html.php', {
+			method: 'POST',
+			body: html_markup
+		})
+		.then(response=>response.text())
+		.then(data => {
+			//$('#parsed').html(data);
+			$('#parsed').html(`<iframe id="frame1" name="frame1">`);
+		var frame1 = $('#frame1').get(0).contentWindow.document.write(html_markup);
+		});
+	});
+</script>
+</html>
