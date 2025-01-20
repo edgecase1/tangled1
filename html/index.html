@@ -30,13 +30,13 @@
 			<input type="password" name="pass" id="inputPassword">
 			<div id="error" class="error"></div>
 		</form>
-	<button id='start'>start</button>
+	<button id='start' onclick="location.href='fiddle.html';">start</button>
 	<!--<div class="items">x</div>
 	<div class="items">x</div>
 	<div class="items">x</div>
 	<div id="anchor" class="items">this is a special item</div>
 	<div class="items">x</div>
-	</div>-->
+	</div>
 	<script>
 	var include=`
 		<button onclick="document.form.submit()">parse</button>
@@ -52,7 +52,7 @@
 
 	document.getElementById('start').addEventListener('click', function(){ document.getElementById('page').innerHTML=include;});
 	</script>
-	<!--
+
 	this is a comment
 	-->
 	<a href="fiddle.html">fiddle</a>
